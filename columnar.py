@@ -26,6 +26,6 @@ for i in chars:
     del s_chars[ind]
     s_chars.insert(ind,-1)
     order.append(ind+1)
-    print(chars)
-print(order)
+#    print(chars)
+#print(order)
 
