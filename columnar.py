@@ -35,11 +35,20 @@ for i in chars:
 lkey=len(key)
 lpt=len(pt)
 
-start=0
-end=lkey
+rows = lpt // lkey
+#print(rows)
 
-while start in range(0,end) and end in range(start,lpt):
-    print(start,end)
-    start=end+1
-    end=lkey+1
+mat_pt = []
+
+for i in range(1,rows+1):
+    if i==1:
+        start=0
+        end=lkey
+    else:
+        start=end
+        end=i*lkey
+    temp=[]
+    temp=pt[start:end]
+    print(temp)
+
     
