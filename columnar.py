@@ -4,10 +4,14 @@
 ###     Version 1.0 - Nevil Dsouza
 ##
 
-pt="Cryptographys"
+### PT
+pt="This is a columnar transposition".lower()
 #py=input("Enter PLAIN TEXT":)
 
-key="znevzz"
+### Filter whitespaces
+pt = pt.replace(" ","")
+
+key="apple"
 #key=input("Enter CIPHER KEY":)
 
 chars=list(key)
@@ -27,7 +31,7 @@ for i in chars:
     s_chars.insert(ind,-1)
     order.append(ind+1)
 #    print(chars)
-#print(order)
+print(order)
 
 
 ### generate blocks of PT
@@ -65,6 +69,21 @@ for i in range(1,rows+1):
     #print(temp)
     mat_pt.append(temp)
 
-#print(mat_pt)
+lmat_pt = len(mat_pt)
 
+###  encrypt data
+
+ct=[]
+
+for k in range(1,lkey+1):
+    
+    ### get current column number
+    j=order.index(k)
+    temp=[]
+    
+    for i in range(lmat_pt):
+        temp.append(mat_pt[i][j])
+    ct.append(temp)
+### CT
+print(ct)
     
