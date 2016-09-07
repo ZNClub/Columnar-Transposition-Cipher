@@ -4,7 +4,7 @@
 ###     Version 1.0 - Nevil Dsouza
 ##
 
-pt="Cryptography"
+pt="Cryptographys"
 #py=input("Enter PLAIN TEXT":)
 
 key="znevzz"
@@ -35,10 +35,23 @@ for i in chars:
 lkey=len(key)
 lpt=len(pt)
 
-rows = lpt // lkey
-#print(rows)
+#rows = lpt // lkey
+rows,remain =divmod(lpt,lkey)
+#print(rows,remain)
+extra=lkey-remain
 
+
+### append null char '!'
+if remain>0:
+    rows+=1
+    for i in range(extra):
+        
+        pt=pt+"!"
+
+#print(pt)
 mat_pt = []
+
+### divide pt into blocks
 
 for i in range(1,rows+1):
     if i==1:
@@ -48,7 +61,10 @@ for i in range(1,rows+1):
         start=end
         end=i*lkey
     temp=[]
-    temp=pt[start:end]
-    print(temp)
+    temp=list(pt[start:end])
+    #print(temp)
+    mat_pt.append(temp)
+
+#print(mat_pt)
 
     
