@@ -17,3 +17,15 @@ s_chars=sorted(chars)
 #print(chars,s_chars)
 
 
+order=[]
+
+for i in chars:
+    if i==-1:
+        continue
+    ind=s_chars.index(i)
+    del s_chars[ind]
+    s_chars.insert(ind,-1)
+    order.append(ind+1)
+    print(chars)
+print(order)
+
