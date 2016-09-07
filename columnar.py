@@ -29,3 +29,17 @@ for i in chars:
 #    print(chars)
 #print(order)
 
+
+### generate blocks of PT
+
+lkey=len(key)
+lpt=len(pt)
+
+start=0
+end=lkey
+
+while start in range(0,end) and end in range(start,lpt):
+    print(start,end)
+    start=end+1
+    end=lkey+1
+    
