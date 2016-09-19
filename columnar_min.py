@@ -91,10 +91,57 @@ CIPHER = ""
 for i in ct:
     for j in i:
         CIPHER=CIPHER+j
-print("PT=",pt,"\nKEY=",key,"\nCT=",CIPHER)
+Single=CIPHER
+#print("PT=",pt,"\nKEY=",key,"\nCT=",Single)
+
+
+#### Double Columnar Process
+
+
+### divide pt into blocks
+mat_pt=[]
+for i in range(1,rows+1):
+    if i==1:
+        start=0
+        end=lkey
+    else:
+        start=end
+        end=i*lkey
+    temp=[]
+    temp=list(CIPHER[start:end])
+    #print(temp)
+    mat_pt.append(temp)
+
+lmat_pt = len(mat_pt)
+
+
+###  encrypt data
+
+ct=[]
+
+for k in range(1,lkey+1):
     
+    ### get current column number
+    j=order.index(k)
+    temp=[]
+    
+    for i in range(lmat_pt):
+        temp.append(mat_pt[i][j])
+    ct.append(temp)
+#print(ct)
+
+### CT
+CIPHER = ""
+for i in ct:
+    for j in i:
+        CIPHER=CIPHER+j
+Double=CIPHER
+print("PT=",pt,"\nKEY=",key,"\nSingle CT=",Single,"\nDouble CT=",Double)
+
+
 '''
 PT= thisisacolumnartransposition!! 
 KEY= apple 
-CT= tsutpiilrst!soani!hamrooicnasn
+Single CT= tsutpiilrst!soani!hamrooicnasn 
+Double CT= titnmcpsaaintrohossi!irnuls!oa
 '''
